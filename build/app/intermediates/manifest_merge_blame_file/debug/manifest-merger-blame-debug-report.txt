@@ -6,39 +6,39 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml
+8-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml
+9-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:4:2-63
-11-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:4:19-61
+11-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:4:2-63
+11-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:4:19-61
 12
 13    <application
-13-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:6:5-44:19
+13-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:6:5-44:19
 14        android:name="io.flutter.app.FlutterApplication"
-14-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:7:9-57
+14-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:7:9-57
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 15-->[androidx.core:core:1.1.0] /Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
 16        android:debuggable="true"
 17        android:icon="@mipmap/launcher_icon"
-17-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:9:9-45
+17-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:9:9-45
 18        android:label="weatherflut" >
-18-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:8:9-36
+18-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:8:9-36
 19        <activity
-19-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:10:9-38:20
+19-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:10:9-38:20
 20            android:name="com.diegoveloper.weatherflut.MainActivity"
-20-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:11:13-41
+20-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:11:13-41
 21            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-21-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:14:13-163
+21-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:14:13-163
 22            android:hardwareAccelerated="true"
-22-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:15:13-47
+22-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:15:13-47
 23            android:launchMode="singleTop"
-23-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:12:13-43
+23-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:12:13-43
 24            android:theme="@style/LaunchTheme"
-24-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:13:13-47
+24-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:13:13-47
 25            android:windowSoftInputMode="adjustResize" >
-25-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:16:13-55
+25-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:16:13-55
 26
 27            <!--
 28                 Specifies an Android theme to apply to this Activity as soon as
@@ -47,11 +47,11 @@
 31                 to determine the Window background behind the Flutter UI.
 32            -->
 33            <meta-data
-33-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:21:13-24:17
+33-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:21:13-24:17
 34                android:name="io.flutter.embedding.android.NormalTheme"
-34-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:22:15-70
+34-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:22:15-70
 35                android:resource="@style/NormalTheme" />
-35-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:23:15-52
+35-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:23:15-52
 36            <!--
 37                 Displays an Android View that continues showing the launch screen
 38                 Drawable until Flutter paints its first frame, then this splash
@@ -60,21 +60,21 @@
 41                 Flutter's first frame.
 42            -->
 43            <meta-data
-43-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:30:13-33:17
+43-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:30:13-33:17
 44                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-44-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:31:15-79
+44-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:31:15-79
 45                android:resource="@drawable/launch_background" />
-45-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:32:15-61
+45-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:32:15-61
 46
 47            <intent-filter>
-47-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:34:13-37:29
+47-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:34:13-37:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:35:17-68
-48-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:35:25-66
+48-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:35:17-68
+48-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:35:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:36:17-76
-50-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:36:27-74
+50-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:36:17-76
+50-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:36:27-74
 51            </intent-filter>
 52        </activity>
 53        <!--
@@ -82,11 +82,11 @@
 55             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 56        -->
 57        <meta-data
-57-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:41:9-43:33
+57-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:41:9-43:33
 58            android:name="flutterEmbedding"
-58-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:42:13-44
+58-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:42:13-44
 59            android:value="2" />
-59-->/Users/xizhang/Documents/GitHub/flutter-weather-app/android/app/src/main/AndroidManifest.xml:43:13-30
+59-->/Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:43:13-30
 60    </application>
 61
 62</manifest>

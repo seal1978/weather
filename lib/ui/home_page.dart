@@ -6,20 +6,19 @@ import 'package:intl/intl.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:weatherflut/model/weather.dart';
 
-import 'package:weatherflut/ui/ui_constants.dart';
+import '../model/weather.dart';
+import 'ui_constants.dart';
+import 'weather_details_widget.dart';
 
 DateFormat format = DateFormat('E, dd MMM yyyy');
 
 class HomePage extends StatefulWidget {
-  // final List<String> cities;
-  // final VoidCallback onTap;
+ 
 
   const HomePage({
     Key key,
-    // this.cities,
-    // this.onTap,
+ 
   }) : super(key: key);
 
   @override
@@ -31,24 +30,31 @@ class _HomePageState extends State<HomePage> {
   List<Weather> weathers = [];
   String tip;
   TextEditingController cityInputController = TextEditingController();
+FocusNode _focus = FocusNode();
 
-  void showDetail(String city) {
-    showBottomSheet(
+  void showDetail(weather,context) {
+  _focus.unfocus(); 
+    showModalBottomSheet(
+      isScrollControlled: true,  
       context: context,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(
-            40.0,
+            8.0,
           ),
         ),
       ),
       builder: (_) {
-        // return WeatherDetailsWidget(city: city);
+        return SingleChildScrollView( 
+        // return Container(height: 200, color: Colors.blue);
+       child: DetailWidget(weather:weather)
+        );
       },
     );
   }
 
   handleCitySubmit({newCity}) async {
+    _focus.unfocus(); 
     print(cityInputController.text);
     String newCity = cityInputController.text;
     if (cities.contains(newCity)) {
@@ -70,9 +76,10 @@ class _HomePageState extends State<HomePage> {
   Future getCities() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List citiesInLocal = prefs.getStringList("cities");
-    if (citiesInLocal.length > 3) setState(() {
-       cities = citiesInLocal;
-    });
+    if (citiesInLocal.length > 3)
+      setState(() {
+        cities = citiesInLocal;
+      });
   }
 
   Future<void> saveCity(String city) async {
@@ -120,19 +127,105 @@ class _HomePageState extends State<HomePage> {
     initData();
   }
 
-  Widget weathersWidget() {
+  Widget weatherItemWidget(weather,context) {
+    TextStyle _textStyle = TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      shadows: shadows,
+    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          // alignment: Alignment.,
+          height: 100.0,
+          width: 350,
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 0.5),
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular((10.0))),
+
+          // alignment: Alignment.center,
+          // Stack(
+          //   fit: StackFit.expand,
+          //   children: [
+          child: GestureDetector(
+            onTap: () {
+              showDetail(weather,context);
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Image.network(
+                    weather.iconUrl[0],
+                    height: 25,
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    weather.city,
+                    textAlign: TextAlign.center,
+                    style: _textStyle,
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Align(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                '${weather.temp}°C',
+                                style: _textStyle,
+                              ),
+                            ),
+                            Text(
+                              weather.description,
+                              style: _textStyle,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget weathersWidget(context) {
     return weathers.length > 0
         ? ListView.builder(
             itemCount: weathers.length,
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
+            itemBuilder: ( context, int index) {
               return Padding(
                   padding: const EdgeInsets.all(5),
-                  child: WeatherItem(
-                    weather: weathers[index],
-                    // onTap: () => showDetail(city),
-                  ));
+                  child: weatherItemWidget(weathers[index],context)
+                  // WeatherItem(
+                  //   weather: weathers[index],
+                  //   onTap: () => showDetail(index),
+                  // )
+                  );
             })
         : Container();
   }
@@ -177,7 +270,7 @@ class _HomePageState extends State<HomePage> {
             child: FutureBuilder(
                 future: getWeathers(),
                 builder: (context, weathers) {
-                  return weathersWidget();
+                  return weathersWidget(context);
                 }),
           )
           //    ],
@@ -190,12 +283,12 @@ class _HomePageState extends State<HomePage> {
 
 class WeatherItem extends StatelessWidget {
   final Weather weather;
-  // final VoidCallback onTap;
+  final VoidCallback onTap;
 
   const WeatherItem({
     Key key,
     this.weather,
-    // this.onTap,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -223,7 +316,7 @@ class WeatherItem extends StatelessWidget {
           //   fit: StackFit.expand,
           //   children: [
           child: GestureDetector(
-            onTap: null,
+            onTap: onTap,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceAround,

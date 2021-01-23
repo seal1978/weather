@@ -195,7 +195,7 @@
     },
     {
       "name": "provider",
-      "rootUri": "file:///Users/xizhang/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.1",
+      "rootUri": "file:///Users/xizhang/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.3",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -302,13 +302,13 @@
       "languageVersion": "2.4"
     },
     {
-      "name": "weatherflut",
+      "name": "weather",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-23T10:59:15.032510Z",
+  "generated": "2021-01-23T11:50:40.433880Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }
