@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
-    },
-    {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "/Users/xizhang/Documents/Weather/build/app/generated/res/pngs/debug/drawable-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -132,32 +132,32 @@
         "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout-v21/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
         "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable/notification_bg.xml"
     },
     {
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/layout_notification_action_tombstone.xml.flat",
         "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
-        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout-v21/notification_action.xml"
-    },
-    {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable_unnamed.png.flat",
         "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/drawable/unnamed.png"
+    },
+    {
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout-v21/notification_action.xml"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -180,12 +180,12 @@
         "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/layout-v16_notification_template_custom_big.xml.flat",
         "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout-v16/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
@@ -196,16 +196,16 @@
         "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable_launch_background.xml.flat",
-        "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/drawable/launch_background.xml"
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
         "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/layout-v21/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+        "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/drawable_launch_background.xml.flat",
+        "source": "/Users/xizhang/Documents/Weather/android/app/src/main/res/drawable/launch_background.xml"
     },
     {
         "merged": "/Users/xizhang/Documents/Weather/build/app/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",

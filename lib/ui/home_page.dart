@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   ///API
   Future getWeather(city) async {
     final url =
-        'http://api.weatherstack.com/forecast?access_key=3b37b4d5e43ef10e4c7baacf8432775a&query=${city}';
+        'http://api.weatherstack.com/forecast?access_key=3b37b4d5e43ef10e4c7baacf8432775a&query=$city';
     Response res = await get(url);
     print(res.statusCode);
     print(res.body);

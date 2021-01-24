@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:weather/ui/screen.dart';
 
 weatherPicWidget(String url, double size) {
-  return Container(
-    width: size,
-    height: size,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(size/10),
-        image: DecorationImage(
-          image: NetworkImage(url),
-          fit: BoxFit.cover,
-        )),
+  return 
+  ClipRRect(
+    borderRadius: BorderRadius.circular(size/10),
+    child:
+          CachedNetworkImage(
+            placeholder: (context, url) => CircularProgressIndicator(),
+            imageUrl:url,
+              fit: BoxFit.cover,
+              width: size,
+              height: size
+          ),
   );
 }
 

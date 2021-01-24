@@ -1,4 +1,4 @@
-#Sun Jan 24 15:37:16 JST 2021
+#Sun Jan 24 16:13:08 JST 2021
 base.0=/Users/xizhang/Documents/Weather/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
