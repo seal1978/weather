@@ -28,12 +28,13 @@ class _LoaderWidgetState extends State<LoaderWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      height: 500,
       child: 
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Spacer(),
+          // Spacer(),
           AnimatedBuilder(
             animation: _controller,
             builder: (context, child) {
@@ -49,8 +50,8 @@ class _LoaderWidgetState extends State<LoaderWidget>
               height: 40,
             ),
           ),
-           Text("Loading"),
-           Spacer(),
+           Text("Loading..."),
+          //  Spacer(),
         ],
       ),
      

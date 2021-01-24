@@ -18,8 +18,9 @@ About UX
 
 
  Todo
- Landscape Screen improvement.
- Get location and display the weather.
+ 1. Landscape Screen improvement.
+ 2. Get location and display the weather.
+ 3. Splash Screen
  
 
  References
