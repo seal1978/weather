@@ -6,8 +6,10 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:date_time_format/date_time_format.dart';
+import 'package:weather/ui/screen.dart';
 
 import '../model/weather.dart';
+import 'loader_widget.dart';
 import 'ui_constants.dart';
 import 'weather_details_widget.dart';
 import 'widgets.dart';
@@ -23,18 +25,38 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   List<String> cities = ["Vancouver", "London", "Tokyo"];
   List<Weather> weathers = [];
   List<Weather> dummyWeathers = [];
   TextEditingController cityInputController = TextEditingController();
   FocusNode _focus = FocusNode();
-  
 
   @override
   void initState() {
     super.initState();
     initData();
+    WidgetsBinding.instance.addObserver(this); //monitor status of APP
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("--" + state.toString());
+    switch (state) {
+      case AppLifecycleState.inactive:
+        print("AppLifecycleState.inactive");
+        break;
+      case AppLifecycleState.resumed:
+        print("AppLifecycleState.resumed");
+        getWeathers(); //if resume, will reload the weathers data
+        break;
+      case AppLifecycleState.paused:
+        print("AppLifecycleState.paused");
+        break;
+      case AppLifecycleState.detached:
+        print("AppLifecycleState.detached");
+        break;
+    }
   }
 
   ///init Data
@@ -104,11 +126,13 @@ class _HomePageState extends State<HomePage> {
     final url =
         'http://api.weatherstack.com/forecast?access_key=3b37b4d5e43ef10e4c7baacf8432775a&query=${city}';
     Response res = await get(url);
-    print(res.statusCode);print(res.body);
+    print(res.statusCode);
+    print(res.body);
     Weather weather;
 
     if (res.statusCode == 200) {
-      if (res.body.contains("success")) {   //treat when wrong city name input to API, but the API feedback "200"
+      if (res.body.contains("success")) {
+        //treat when wrong city name input to API, but the API feedback "200"
         weather = Weather(city: "615");
       }
       if (res.body.contains("weather_descriptions")) {
@@ -133,7 +157,7 @@ class _HomePageState extends State<HomePage> {
 
   Future getWeathers() async {
     weathers = [];
-    for (int i = cities.length - 1; i > -1; i--) {
+    for (int i = 0; i < cities.length; i++) {
       Weather weather = await getWeather(cities[i]);
       if (weather.city != "615") weathers.add(weather);
       // print(
@@ -154,16 +178,23 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
   ///UI
   Widget weatherItemWidget(weather, context) {
     return Row(
+      // crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
           height: 100.0,
-          width: 350,
+          width: Adapt.px(364),
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 0.5),
+              // border: Border.all(color: Colors.white, width: 0.5),
               color: Colors.grey[300],
               borderRadius: BorderRadius.circular((10.0))),
           child: GestureDetector(
@@ -174,7 +205,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    padding:  EdgeInsets.symmetric(horizontal: Adapt.px(5)),
                     child: weatherPicWidget(weather.iconUrl[0], 50)),
                 SizedBox(
                   width: 100,
@@ -200,10 +231,11 @@ class _HomePageState extends State<HomePage> {
                             style: textStyle,
                           ),
                         ),
-                        Text(
+                        Wrap(children:[Text(
                           weather.description,
+                          textAlign: TextAlign.center,
                           style: textStyle,
-                        )
+                        )])
                       ],
                     ),
                   ),
@@ -223,12 +255,14 @@ class _HomePageState extends State<HomePage> {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, int index) {
+              int indexReversed = weathers.length - 1 - index;
               return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 2.5),
-                  child: weatherItemWidget(weathers[index], context));
+                  child: weatherItemWidget(weathers[indexReversed], context));
             })
-        : Container();
+        // : Container();
+        : LoaderWidget();
   }
 
   @override
@@ -264,13 +298,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
-            FutureBuilder(
-                future: getWeathers(),
-                builder: (context, weathers) {
-                  return weathersWidget(context);
-                }),
-     
+          Column(
+            children: [
+              FutureBuilder(
+                  future: getWeathers(),
+                  builder: (context, weathers) {
+                    return weathersWidget(context);
+                  }),
+            ],
+          ),
         ],
       ),
     ));

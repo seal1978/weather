@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.diegoveloper.weatherflut">
+    package="com.rakuten.weatherRT">
  
  <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="weatherflut"
-        android:icon="@mipmap/launcher_icon">
+        android:label="weatherRT"
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

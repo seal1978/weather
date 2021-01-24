@@ -29,21 +29,32 @@ class _LoaderWidgetState extends State<LoaderWidget>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          return Transform.rotate(
-            angle: vector.radians(
-              180 * _controller.value,
+      child: 
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Spacer(),
+          AnimatedBuilder(
+            animation: _controller,
+            builder: (context, child) {
+              return Transform.rotate(
+                angle: vector.radians(
+                  180 * _controller.value,
+                ),
+                child: child,
+              );
+            },
+            child: Image.asset(
+              'assets/loader.png',
+              height: 40,
             ),
-            child: child,
-          );
-        },
-        child: Image.asset(
-          'assets/loader.png',
-          height: 40,
-        ),
+          ),
+           Text("Loading"),
+           Spacer(),
+        ],
       ),
+     
+      
     );
   }
 }

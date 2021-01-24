@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.diegoveloper.weatherflut"
+    package="com.rakuten.weatherRT"
     android:targetSandboxVersion="2"
     android:versionCode="1"
     android:versionName="1.0.0" >
@@ -15,10 +15,10 @@
         android:name="io.flutter.app.FlutterApplication"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
-        android:icon="@mipmap/launcher_icon"
-        android:label="weatherflut" >
+        android:icon="@mipmap/ic_launcher"
+        android:label="weatherRT" >
         <activity
-            android:name="com.diegoveloper.weatherflut.MainActivity"
+            android:name="com.rakuten.weatherRT.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"

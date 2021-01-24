@@ -17,8 +17,8 @@ weatherPicWidget(String url, double size) {
 
   showToast(context) {
     Widget toastSuccessed = Container(
-        width: Adapt.px(200),
-        height: Adapt.px(100),
+        width: Adapt.px(100),
+        height: Adapt.px(50),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

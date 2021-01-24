@@ -1,4 +1,4 @@
-com.diegoveloper.weatherflut
+com.rakuten.weatherRT
 attr alpha
 attr font
 attr fontProviderAuthority
@@ -11,6 +11,7 @@ attr fontStyle
 attr fontVariationSettings
 attr fontWeight
 attr ttcIndex
+color ic_launcher_background
 color notification_action_color_filter
 color notification_icon_bg_color
 color ripple_material_light
@@ -37,6 +38,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+drawable ic_launcher_foreground
 drawable launch_background
 drawable notification_action_background
 drawable notification_bg
@@ -50,6 +52,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable unnamed
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -126,7 +129,8 @@ layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
 mipmap ic_launcher
-mipmap launcher_icon
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
 string status_bar_notification_info_overflow
 style LaunchTheme
 style NormalTheme

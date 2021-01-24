@@ -22,7 +22,7 @@ INJECTED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManif
 INJECTED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:1:1-45:12
 INJECTED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:1:1-45:12
 	package
-		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:2:5-43
+		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:2:5-36
 		INJECTED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -48,12 +48,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/xizh
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /Users/xizhang/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:8:9-36
+		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:8:9-34
 	android:icon
-		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:9:9-45
+		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:9:9-43
 	android:name
 		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:7:9-57
-activity#com.diegoveloper.weatherflut.MainActivity
+activity#com.rakuten.weatherRT.MainActivity
 ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:10:9-38:20
 	android:launchMode
 		ADDED from /Users/xizhang/Documents/Weather/android/app/src/main/AndroidManifest.xml:12:13-43

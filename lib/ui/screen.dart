@@ -20,7 +20,7 @@ class Adapt {
 
   static px(number) {
     if (!(_ratio is double || _ratio is int)) {
-      Adapt.init(750);
+      Adapt.init(375);
     }
     return number * _ratio;
   }
