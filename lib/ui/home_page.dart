@@ -7,12 +7,11 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:date_time_format/date_time_format.dart';
-import 'package:weather/ui/screen.dart';
 
 import '../model/weather.dart';
 import 'list_item_widget.dart';
 import 'loader_widget.dart';
-import 'ui_constants.dart';
+
 import 'weather_details_widget.dart';
 import 'widgets.dart';
 
@@ -141,16 +140,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (res.body.contains("weather_descriptions")) {
         // status:ok
         weather = Weather.fromJson(json.decode(res.body));
-        weather.animaType = getAnimaType(weather.description);
+        weather.animaType = getAnimaType(weather.weatherCode);
       }
-      // ErrorInfo err = ErrorInfo.fromJson(json.decode(res.body));
-      // if (!err.success) {
-      //   //treat when wrong city name input to API, but the API feedback "200"
-      //   weather = Weather(city: "615");
-      // } else {
-      //   // "200"and get info
-      //   weather = Weather.fromJson(json.decode(res.body));
-      // }
+
     } else {
       //treat wrong
       weather = Weather(city: "615");
@@ -159,11 +151,43 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     return weather;
   }
 
-  getAnimaType(String descript) {
+ 
+
+  getAnimaType(int code) {
     WeatherType animaType;
-    if (descript == "Light drizzle" || descript == "Light Rain")
-      animaType = WeatherType.lightRainy;
-    if (descript == "Partly cloud") animaType = WeatherType.cloudy;
+    if ((code > 373 && code < 390) ||
+        (code > 352 && code < 366) ||
+        code == 308 ||
+        code == 305) animaType = WeatherType.heavyRainy;
+
+    if (code == 395 ||
+        code == 371 ||
+        code == 368 ||
+        (code < 351 && code > 335) ||
+        code == 230 ||
+        code == 227) animaType = WeatherType.heavySnow;
+    if (code == 392 || code == 332 || code == 329)
+      animaType = WeatherType.middleSnow;
+    if (code == 200) animaType = WeatherType.thunder;
+
+    if (code == 311 ||
+        (code < 297 && code > 262) ||
+        code == 185 ||
+        code == 182 ||
+        code == 176) animaType = WeatherType.lightRainy;
+    if (code == 326 || code == 323) animaType = WeatherType.lightSnow;
+    // if (code ==  296|| code == 2)animaType = WeatherType.sunnyNight;
+    if (code < 117) animaType = WeatherType.sunny;
+
+    if (code == 119) animaType = WeatherType.cloudy;
+    //if (code ==  296|| code == 2)animaType = WeatherType.cloudyNight;
+    if ((code < 321 && code > 313) || code == 302 || code == 299 || code == 179)
+      animaType = WeatherType.middleRainy;
+    if (code == 122) animaType = WeatherType.overcast;
+
+    if (code == 143) animaType = WeatherType.hazy;
+    if (code == 248 || code == 260) animaType = WeatherType.foggy;
+    // if (code ==  143)animaType = WeatherType.dusty;
 
     return animaType;
   }
@@ -185,6 +209,11 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   generateDummyData(weather) {
     DateTime dateTime = DateTime.now();
+    // print(dateTime);
+    // int nowS = DateTime.now().millisecondsSinceEpoch;
+    // print(nowS);
+    // print(DateTime.fromMillisecondsSinceEpoch(nowS));
+
     weather.day = dateTime.format('l');
     dummyWeathers = [weather];
     for (int i = 0; i < 6; i++) {
@@ -218,8 +247,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                       weather: weathers[indexReversed],
                       onTap: () {
                         showDetail(weathers[indexReversed], context);
-                      })
-                  );
+                      }));
             })
         : LoaderWidget();
   }
