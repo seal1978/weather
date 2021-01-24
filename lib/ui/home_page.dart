@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'dart:ui';
+import 'package:flutter_weather_bg/flutter_weather_bg.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +10,7 @@ import 'package:date_time_format/date_time_format.dart';
 import 'package:weather/ui/screen.dart';
 
 import '../model/weather.dart';
+import 'list_item_widget.dart';
 import 'loader_widget.dart';
 import 'ui_constants.dart';
 import 'weather_details_widget.dart';
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
         break;
       case AppLifecycleState.resumed:
         print("AppLifecycleState.resumed");
+
         ///if resume, will reload the weathers data
         setState(() {});
         break;
@@ -138,6 +141,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       if (res.body.contains("weather_descriptions")) {
         // status:ok
         weather = Weather.fromJson(json.decode(res.body));
+        weather.animaType = getAnimaType(weather.description);
       }
       // ErrorInfo err = ErrorInfo.fromJson(json.decode(res.body));
       // if (!err.success) {
@@ -155,6 +159,15 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     return weather;
   }
 
+  getAnimaType(String descript) {
+    WeatherType animaType;
+    if (descript == "Light drizzle" || descript == "Light Rain")
+      animaType = WeatherType.lightRainy;
+    if (descript == "Partly cloud") animaType = WeatherType.cloudy;
+
+    return animaType;
+  }
+
   Future getWeathers() async {
     weathers = [];
 
@@ -162,7 +175,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       Weather weather = await getWeather(cities[i]);
       if (weather.city != "615") {
         weathers.add(weather);
-        print(weather.city);print(i);print(cities.length);print(weathers.length);
+        print(weather.city);
+        print(i);
+        print(cities.length);
+        print(weathers.length);
       }
     }
   }
@@ -187,71 +203,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   }
 
   ///UI
-  Widget weatherItemWidget(weather, context) {
-    return Row(
-      // crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          height: 100.0,
-          width: Adapt.px(364),
-          decoration: BoxDecoration(
-              // border: Border.all(color: Colors.white, width: 0.5),
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular((10.0))),
-          child: GestureDetector(
-            onTap: () {
-              showDetail(weather, context);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: Adapt.px(5)),
-                    child: weatherPicWidget(weather.iconUrl[0], 50)),
-                SizedBox(
-                  width: 100,
-                  child: Center(
-                    child: Text(
-                      weather.city,
-                      textAlign: TextAlign.center,
-                      style: textStyle,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 140,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Align(
-                          child: Text(
-                            '${weather.temp}°C',
-                            style: textStyle,
-                          ),
-                        ),
-                        Wrap(children: [
-                          Text(
-                            weather.description,
-                            textAlign: TextAlign.center,
-                            style: textStyle,
-                          )
-                        ])
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget weathersWidget(context) {
     return weathers.length > 0
         ? ListView.builder(
@@ -263,9 +214,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 2.5),
-                  child: weatherItemWidget(weathers[indexReversed], context));
+                  child: ListItemWidget(
+                      weather: weathers[indexReversed],
+                      onTap: () {
+                        showDetail(weathers[indexReversed], context);
+                      })
+                  );
             })
-        // : Container();
         : LoaderWidget();
   }
 
