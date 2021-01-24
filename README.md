@@ -4,7 +4,7 @@ About UX
  3. Using toast to remind the user when input wrong city or no info from API, it will disappear automatically, not so disturb the user.
  4. Show the city on top of the list that is searched last time.
  5. Remove the same data, if the user searches the city repeatedly.
- 6. Only add the new city weather info, not refresh the old cities, because the API speed is not fast.
+ 6. Using Image cache to improve the load speed of image from API.
  7. No button to refresh the weather. But the APP will monitor the APP, if the status changed, such as change into resumed from suspend, will refresh the weather info. (Because the weather info is not changed often like the stock market, and the user will not always open the APP, most time it is suspended and closed.)
 
  About UI
@@ -15,6 +15,7 @@ About UX
 
  About Tech
  1. Code by Dart, because can get both iOS and Android APP.1
+ 2. Code by Android, such as launch icon etc.
 
 
  Todo
