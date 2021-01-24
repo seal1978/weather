@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       case AppLifecycleState.resumed:
         print("AppLifecycleState.resumed");
         getWeathers(); //if resume, will reload the weathers data
+        setState(() {});
         break;
       case AppLifecycleState.paused:
         print("AppLifecycleState.paused");
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   initData() async {
     cities = await getCities();
     if (null == cities) cities = ["Vancouver", "London", "Tokyo"];
-    // await getWeathers();
+  
   }
 
   void showDetail(weather, context) {
@@ -160,8 +161,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     for (int i = 0; i < cities.length; i++) {
       Weather weather = await getWeather(cities[i]);
       if (weather.city != "615") weathers.add(weather);
-      // print(
-      //     "3${weathers.length} ${weather.city} ${weather.temp} ${weather.iconUrl}");
     }
   }
 
