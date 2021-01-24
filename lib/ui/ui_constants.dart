@@ -11,3 +11,10 @@ const shadows = [
     spreadRadius: 5.0,
   ),
 ];
+
+const textStyle = TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      // shadows: shadows,
+    );
