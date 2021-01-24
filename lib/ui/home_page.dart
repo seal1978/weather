@@ -26,10 +26,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<String> cities = ["Vancouver", "London", "Tokyo"];
   List<Weather> weathers = [];
-  // String tip;
+  List<Weather> dummyWeathers = [];
   TextEditingController cityInputController = TextEditingController();
   FocusNode _focus = FocusNode();
-  List<Weather> dummyWeathers = [];
+  
 
   @override
   void initState() {
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   initData() async {
     cities = await getCities();
     if (null == cities) cities = ["Vancouver", "London", "Tokyo"];
-    await getWeathers();
+    // await getWeathers();
   }
 
   void showDetail(weather, context) {
@@ -77,15 +77,10 @@ class _HomePageState extends State<HomePage> {
         }
       }
       cityInputController.text = ""; //clear search word
-      print("-----------");
-      print(weathers[0].city);
-      print(weathers[1].city);
       setState(() {});
       saveCities(cities); // save city data to local
     } else {
       showToast(context);
-      // tip = "No data!";
-      // print(tip);
     }
   }
 
@@ -269,14 +264,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Expanded(
-            //TODO
-            child: FutureBuilder(
+
+            FutureBuilder(
                 future: getWeathers(),
                 builder: (context, weathers) {
                   return weathersWidget(context);
                 }),
-          )
+     
         ],
       ),
     ));
