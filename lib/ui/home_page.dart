@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
         break;
       case AppLifecycleState.resumed:
         print("AppLifecycleState.resumed");
-        getWeathers(); //if resume, will reload the weathers data
+        ///if resume, will reload the weathers data
         setState(() {});
         break;
       case AppLifecycleState.paused:
@@ -64,7 +64,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   initData() async {
     cities = await getCities();
     if (null == cities) cities = ["Vancouver", "London", "Tokyo"];
-  
   }
 
   void showDetail(weather, context) {
@@ -158,9 +157,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   Future getWeathers() async {
     weathers = [];
+
     for (int i = 0; i < cities.length; i++) {
       Weather weather = await getWeather(cities[i]);
-      if (weather.city != "615") weathers.add(weather);
+      if (weather.city != "615") {
+        weathers.add(weather);
+        print(weather.city);print(i);print(cities.length);print(weathers.length);
+      }
     }
   }
 
@@ -204,7 +207,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: Adapt.px(5)),
+                    padding: EdgeInsets.symmetric(horizontal: Adapt.px(5)),
                     child: weatherPicWidget(weather.iconUrl[0], 50)),
                 SizedBox(
                   width: 100,
@@ -230,11 +233,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                             style: textStyle,
                           ),
                         ),
-                        Wrap(children:[Text(
-                          weather.description,
-                          textAlign: TextAlign.center,
-                          style: textStyle,
-                        )])
+                        Wrap(children: [
+                          Text(
+                            weather.description,
+                            textAlign: TextAlign.center,
+                            style: textStyle,
+                          )
+                        ])
                       ],
                     ),
                   ),
