@@ -28,6 +28,7 @@ class ListItemWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(width:10),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: Adapt.px(5)),
                   child: weatherPicWidget(weather.iconUrl[0], 50)),
