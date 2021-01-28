@@ -6,7 +6,7 @@ About UX
  5. Remove the same data, if the user searches the city repeatedly.
  6. Using Image cache to improve the load speed of image from API.
  7. No button to refresh the weather. But the APP will monitor the APP, if the status changed, such as change into resumed from suspend, will refresh the weather info. (Because the weather info is not changed often like the stock market, and the user will not always open the APP, most time it is suspended and closed.)
- 8. 
+ 
 
  About UI
  1. Only follow the png.
@@ -18,6 +18,7 @@ About UX
  About Tech
  1. Code by Dart, because can get both iOS and Android APP.1
  2. Code by Android, such as launch icon etc.
+ 3.Because of only 2 pages, and 1 person to develop, did not use MVVM. . If there are many pages in the future and the UI will be changed frequently, use an MVVM such as a Provider to develope.
 
 
  Todo
